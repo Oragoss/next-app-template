@@ -3,14 +3,15 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-sky-100">
+    <div className="navbar bg-slate-200">
         <div className="flex-1">
             <Link href="/" className="btn btn-ghost normal-case text-xl">Home</Link>
             <Link href="/users" className="btn btn-ghost normal-case">Users</Link>
+            <Link href="/" className="btn btn-ghost normal-case">Example Showcase</Link>
         </div>
         <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
-            <li><Link href="/">Link</Link></li>
+            <li><Link href="/">Projects</Link></li>
             <li>
                 <details>
                 <summary>
