@@ -16,6 +16,7 @@ const UserTable = async ({sortOrder}: Props) => {
   // const res = await fetch('https://jsonplaceholder.typicode.com/users', {cache: 'no-store'}); // Does not cache and will render each time on production
   // const res = await fetch('https://jsonplaceholder.typicode.com/users', {next: { revalidate: 10 }}); //caches, but will refresh ever 10 seconds
   const res = await fetch('https://jsonplaceholder.typicode.com/users'); //Cache this request and we'll see it doesn't change
+  // const res = await fetch('https://jsonplaceholder.typicode.com/xusers'); //Invalid endpoint test
   const users: User[] = await res.json();
 
   const sortedUsers = sort(users).asc(
@@ -26,6 +27,7 @@ const UserTable = async ({sortOrder}: Props) => {
 
   return (
     <table className='table table-bordered'>
+      {/* Generate this table in vs code by typing: table>thead>tr>th*2 */}
         <thead>
           <tr>
             <th><Link href="/users?sortOrder=name">Name</Link></th>
