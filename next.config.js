@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   //   /**
+  //    https://github.com/gregrickaby/nextjs-github-pages
   //  * Enable static exports for the App Router.
   //  *
   //  * @see https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
