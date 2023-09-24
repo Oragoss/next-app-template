@@ -15,8 +15,9 @@ interface User {
 const UserTable = async ({sortOrder}: Props) => {
   // const res = await fetch('https://jsonplaceholder.typicode.com/users', {cache: 'no-store'}); // Does not cache and will render each time on production
   // const res = await fetch('https://jsonplaceholder.typicode.com/users', {next: { revalidate: 10 }}); //caches, but will refresh ever 10 seconds
-  const res = await fetch('https://jsonplaceholder.typicode.com/users'); //Cache this request and we'll see it doesn't change
+  // const res = await fetch('https://jsonplaceholder.typicode.com/users'); //Cache this request and we'll see it doesn't change
   // const res = await fetch('https://jsonplaceholder.typicode.com/xusers'); //Invalid endpoint test
+  const res = await fetch('http://localhost:3000/api/users')
   const users: User[] = await res.json();
 
   const sortedUsers = sort(users).asc(

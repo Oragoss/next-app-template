@@ -7,7 +7,7 @@ const NavBar = () => {
         <div className="flex-1">
             <Link href="/" className="btn btn-ghost normal-case text-xl">Home</Link>
             <Link href="/users" className="btn btn-ghost normal-case">Users</Link>
-            <Link href="/" className="btn btn-ghost normal-case">Example Showcase</Link>
+            <Link href="/upload" className="btn btn-ghost normal-case">Upload Files</Link>
         </div>
         <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
