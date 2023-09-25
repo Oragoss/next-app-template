@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import NavBar from './components/Navbar/Navbar'
 import Loading from './components/Loading/Loading'
+import AuthProvider from './auth/Provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,12 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <NavBar />
-        <main className='p-5'>
-          <Suspense fallback={<Loading />}>
-            {children}
-          </Suspense>
-        </main>
+        <AuthProvider>
+          <NavBar />
+          <main className='p-5'>
+            <Suspense fallback={<Loading />}>
+              {children}
+            </Suspense>
+          </main>
+        </AuthProvider>
       </body>
     </html>
   )

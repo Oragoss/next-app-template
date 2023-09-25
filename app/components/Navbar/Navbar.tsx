@@ -1,7 +1,12 @@
+'use client';
+
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 
 const NavBar = () => {
+    const { status, data: session } = useSession();
+
   return (
     <div className="navbar bg-slate-200">
         <div className="flex-1">
@@ -9,16 +14,18 @@ const NavBar = () => {
             <Link href="/users" className="btn btn-ghost normal-case">Users</Link>
             <Link href="/upload" className="btn btn-ghost normal-case">Upload Files</Link>
         </div>
-        <div className="flex-none">
+        <div className="flex-none space-x-3">
             <ul className="menu menu-horizontal px-1">
-            <li><Link href="/">Projects</Link></li>
+            { status === 'loading' && <></> }
+            { status === 'authenticated' && <li><Link href="/api/auth/signout">{session.user?.name}</Link></li> }
+            { status === 'unauthenticated' && <li><Link href="/api/auth/signin">Sign In</Link></li> }
             <li>
                 <details>
                 <summary>
-                    Parent
+                    Options
                 </summary>
                 <ul className="p-2 bg-base-100">
-                    <li><Link href="/">Link 1</Link></li>
+                    <li><Link href="/api/auth/signout">Sign Out</Link></li>
                     <li><Link href="/users">Users</Link></li>
                 </ul>
                 </details>
