@@ -6,6 +6,8 @@ interface User {
     id: number;
     name: string;
     email: string;
+    followers: number,
+    isActive: boolean
   }
 
   interface Props {
@@ -17,7 +19,7 @@ const UserTable = async ({sortOrder}: Props) => {
   // const res = await fetch('https://jsonplaceholder.typicode.com/users', {next: { revalidate: 10 }}); //caches, but will refresh ever 10 seconds
   // const res = await fetch('https://jsonplaceholder.typicode.com/users'); //Cache this request and we'll see it doesn't change
   // const res = await fetch('https://jsonplaceholder.typicode.com/xusers'); //Invalid endpoint test
-  const res = await fetch('http://localhost:3000/api/users')
+  const res = await fetch('http://localhost:3000/api/users', {cache: 'no-store'})
   const users: User[] = await res.json();
 
   const sortedUsers = sort(users).asc(
@@ -33,6 +35,8 @@ const UserTable = async ({sortOrder}: Props) => {
           <tr>
             <th><Link href="/users?sortOrder=name">Name</Link></th>
             <th><Link href="/users?sortOrder=email">Email</Link></th>
+            <th>Followers</th>
+            <th>Active</th>
           </tr>
         </thead>
         <tbody>
@@ -42,6 +46,8 @@ const UserTable = async ({sortOrder}: Props) => {
               {/* Keep using ctrl + D until you've highlighed all the elements you want. 2, 4, 6, or 80 */}
               <td>{user.name}</td>
               <td>{user.email}</td>
+              <td>{user.followers}</td>
+              <td>{user.isActive ? "Yes" : "No"}</td>
             </tr>)}
         </tbody>
       </table>
