@@ -12,6 +12,7 @@ export const config = {
     // ?: zero or one
     matcher: [
         '/admin/:path*',
-        '/dashboard/:path*'
+        '/dashboard/:path*',
+        '/resetpassword/:path*'
     ]
 }
