@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'daisyui.com',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+  },
   //   /**
   //    https://github.com/gregrickaby/nextjs-github-pages
   //  * Enable static exports for the App Router.
